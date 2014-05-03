@@ -46,6 +46,10 @@ app.get('/', function (req, res) {
     res.render('index', {includeMetaDescription: true});
 });
 
+app.get('*.livegit', function (req, res) {
+    res.render('editor', {includeMetaDescription: true});
+});
+
 app.get('/faq', function (req, res) {
     res.render('faq', {title: 'FAQ'});
 });

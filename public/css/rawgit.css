@@ -140,6 +140,7 @@ pre { overflow-x: auto; }
 }
 
 .hero {
+    background: black;
     font-size: 2.5em;
     line-height: 1.3;
     padding: 0 3em;
