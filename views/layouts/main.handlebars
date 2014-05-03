@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" manifest="editor.appcache">
 <meta charset="utf-8">
 <title>{{#if title}}{{title}} - RawGit{{else}}RawGit{{/if}}</title>
 <meta name="viewport" content="width=device-width">
@@ -8,9 +8,19 @@
     <meta name="description" content="RawGit serves raw files directly from GitHub with proper Content-Type headers.">
 {{/if}}
 
+<link rel="stylesheet" href="js/codemirror/codemirror.css">
+<script src="js/codemirror/codemirror.js"></script>
+<script src="js/codemirror/mode/xml.js"></script>
+<script src="js/codemirror/mode/javascript.js"></script>
+<script src="js/codemirror/mode/css.js"></script>
+<script src="js/codemirror/mode/htmlmixed.js"></script>
+<script src="js/rawinflate.js"></script>
+<script src="js/rawdeflate.js"></script>
+<script src="js/esprima.js"></script>
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans+Mono:400">
 <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.4.2/pure-min.css">
 <link rel="stylesheet" href="/css/rawgit.css">
+<link rel="stylesheet" href="/css/htmleditor.css">
 <link rel="icon" href="/img/sushi.png">
 
 <header class="hd">
