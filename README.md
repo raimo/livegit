@@ -1,7 +1,7 @@
 LiveGit
 ======
 
-This is the source code behind <http://livegit.herokuapp.com/>.
+This is the source code behind [livegit](http://livegit.herokuapp.com/), using Ryan Grove's [rawgit](https://github.com/rgrove/rawgit) as the backend and mrdoob's [htmleditor](https://github.com/mrdoob/htmleditor) as the frontend.
 
 
 Installing
