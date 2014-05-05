@@ -39,8 +39,6 @@
       var element = editor.getWrapperElement();
       // toolbar
       var toolbar = document.getElementById( 'toolbar' );
-      var buttonUpdate = document.createElement( 'button' );
-      buttonUpdate.className = 'button';
       var checkbox = document.createElement( 'input' );
       checkbox.type = 'checkbox';
       if ( documents[ 0 ].autoupdate === true ) checkbox.checked = true;
@@ -50,26 +48,16 @@
       	documents[ 0 ].autoupdate = documents[ 0 ].autoupdate === false;
       	localStorage.codeeditor = JSON.stringify( documents );
       }, false );
-      buttonUpdate.appendChild( checkbox );
-      buttonUpdate.appendChild( document.createTextNode( 'update' ) );
-      buttonUpdate.addEventListener( 'click', function ( event ) {
-      	update();
-      }, false );
-      toolbar.appendChild( buttonUpdate );
       var buttonHide = document.createElement( 'button' );
       buttonHide.className = 'button';
-      buttonHide.textContent = 'hide code';
+      buttonHide.textContent = 'show code';
       buttonHide.addEventListener( 'click', function ( event ) {
       	toggle();
       }, false );
+
+      element.style.display = 'none';
+
       toolbar.appendChild( buttonHide );
-      var buttonMenu = document.createElement( 'button' );
-      buttonMenu.className = 'button';
-      buttonMenu.innerHTML = '<svg width="8" height="8"><path d="M 0,1.5 8,1.5 M 0,4.5 8,4.5 M 0,7.5 8,7.5"></svg>';
-      buttonMenu.addEventListener( 'click', function ( event ) {
-      	menu.style.display = menu.style.display === '' ? 'none' : '';
-      }, false );
-      toolbar.appendChild( buttonMenu );
       toolbar.appendChild( document.createElement( 'br' ) );
       var menu = document.createElement( 'span' );
       menu.style.display = 'none';
@@ -87,37 +75,6 @@
       buttonDownload.download = 'index.html';
       buttonDownload.textContent = 'download';
       menu.appendChild( buttonDownload );
-      var buttonShare = document.createElement( 'button' );
-      buttonShare.className = 'button';
-      buttonShare.textContent = 'share';
-      buttonShare.addEventListener( 'click', function ( event ) {
-      	var dom = document.createElement( 'input' );
-      	dom.value = 'http://www.mrdoob.com/projects/htmleditor/#B/' + encode( editor.getValue() );
-      	dom.style.width = '400px';
-      	dom.style.padding = '5px';
-      	dom.style.marginTop = '20px';
-      	dom.style.border = '0px';
-      	popup.set( dom );
-      	popup.show();
-      	dom.focus();
-      	dom.select();
-      }, false );
-      menu.appendChild( buttonShare );
-      var buttonReset = document.createElement( 'button' );
-      buttonReset.className = 'button';
-      buttonReset.textContent = 'reset';
-      buttonReset.addEventListener( 'click', function ( event ) {
-
-      	if ( confirm( 'Are you sure?' ) === true ) {
-
-      		editor.setValue( defaultCode );
-      		save();
-
-      	}
-
-      }, false );
-      menu.appendChild( buttonReset );
-
       var buttonAbout = document.createElement( 'button' );
       buttonAbout.className = 'button';
       buttonAbout.textContent = 'about';
@@ -425,13 +382,9 @@
 
       		buttonHide.textContent = 'show code';
       		element.style.display = 'none';
-      		buttonUpdate.style.display = 'none';
-      		buttonShare.display = 'none';
       	} else {
       		buttonHide.textContent = 'hide code';
       		element.style.display = '';
-      		buttonUpdate.style.display = '';
-      		buttonShare.display = '';
       	}
       };
       update();
